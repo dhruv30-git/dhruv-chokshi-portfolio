@@ -893,22 +893,33 @@ body {
     font-size: 0.9rem;
 }
 
-/* ========== EDUCATION SECTION ========== */
+/* ========== EDUCATION SECTION - FIXED FOR LAST ITEM VISIBILITY ========== */
+.education {
+    padding: 80px 0;
+    position: relative;
+    overflow: visible; /* Changed from hidden to visible */
+}
+
 .education-tabs {
     max-width: 800px;
     margin: 0 auto;
     border: 1px solid var(--light-gray);
     border-radius: 8px;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible */
+    box-shadow: var(--shadow);
 }
 
 .tab {
     border-bottom: 1px solid var(--light-gray);
     transition: var(--transition);
+    position: relative;
+    background-color: var(--white);
 }
 
 .tab:last-child {
     border-bottom: none;
+    border-radius: 0 0 8px 8px;
+    overflow: visible; /* Ensure last tab content is visible */
 }
 
 .tab-header {
@@ -944,52 +955,69 @@ body {
 }
 
 .tab.active .tab-content {
-    max-height: 500px;
+    max-height: 800px; /* Increased to ensure all content shows */
+    overflow: visible;
 }
 
 .tab-details {
-    padding: 0 30px 30px;
+    padding: 0 30px 40px; /* Increased bottom padding */
+    background-color: var(--white);
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    z-index: 2;
 }
 
 .institution {
     color: var(--accent);
     font-weight: 600;
     margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 .tab-details p {
     color: var(--gray);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     line-height: 1.8;
+    font-size: 1.05rem;
 }
 
 .course-highlights {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .course-highlights li {
-    padding: 10px 15px;
+    padding: 15px 20px;
     background-color: var(--light);
-    border-left: 3px solid var(--accent);
+    border-left: 4px solid var(--accent);
     color: var(--secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
-/* ========== SKILLS SECTION - FIXED FOR LAST SKILL VISIBILITY ========== */
+.course-highlights li:hover {
+    transform: translateX(5px);
+    background-color: #f0f5ff;
+}
+
+/* ========== SKILLS SECTION ========== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     perspective: 1000px;
-    padding-bottom: 30px; /* Added padding to ensure last skill is visible */
+    padding-bottom: 30px;
 }
 
 .flip-card {
     height: 300px;
     perspective: 1000px;
-    margin-bottom: 15px; /* Added margin for better spacing */
+    margin-bottom: 15px;
 }
 
 .flip-card-inner {
@@ -1033,7 +1061,7 @@ body {
     transform: rotateY(180deg);
     box-shadow: var(--shadow);
     justify-content: flex-start;
-    overflow-y: auto; /* Ensure content is scrollable if needed */
+    overflow-y: auto;
 }
 
 .skill-icon {
@@ -1098,10 +1126,9 @@ body {
     flex-grow: 1;
     overflow-y: auto;
     max-height: calc(100% - 70px);
-    padding-right: 5px; /* Add some padding for scrollbar */
+    padding-right: 5px;
 }
 
-/* Custom scrollbar for skill list */
 .skill-list::-webkit-scrollbar {
     width: 4px;
 }
@@ -1127,7 +1154,6 @@ body {
     align-items: flex-start;
 }
 
-/* Ensure last item in list is visible */
 .skill-list li:last-child {
     border-bottom: none;
     padding-bottom: 5px;
@@ -1249,39 +1275,44 @@ body {
     opacity: 0.7;
 }
 
-/* ========== CONTACT SECTION ========== */
-.contact-headings {
+/* ========== CONTACT SECTION - REORGANIZED ========== */
+.contact-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 60px;
     max-width: 1000px;
-    margin: 0 auto 40px;
-    align-items: center;
+    margin: 0 auto;
+}
+
+.contact-section {
+    padding: 30px;
+    background-color: var(--light);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.contact-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .contact-heading {
     font-size: 1.8rem;
     color: var(--primary);
-    margin: 0;
+    margin-bottom: 20px;
     font-family: 'JetBrains Mono', monospace;
-    position: relative;
     text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent);
 }
 
-.contact-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1000px;
-    margin: 0 auto;
-    align-items: start;
-}
-
-.contact-info p {
+.contact-description {
     color: var(--gray);
     margin-bottom: 30px;
     line-height: 1.7;
     font-size: 1.05rem;
+    text-align: center;
 }
 
 .contact-methods {
@@ -1292,20 +1323,19 @@ body {
 
 .contact-method {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
-    text-decoration: none;
-    padding: 25px;
-    background-color: var(--light);
-    border-radius: 12px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
     transition: var(--transition);
     border: 1px solid var(--light-gray);
 }
 
 .contact-method:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    transform: translateX(5px);
     border-color: var(--accent);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.1);
 }
 
 .method-icon {
@@ -1322,16 +1352,18 @@ body {
 
 .email-icon {
     background: linear-gradient(135deg, #0066cc, #00aaff);
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
 }
 
 .phone-icon {
     background: linear-gradient(135deg, #28a745, #20c997);
-    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
 }
 
 .method-icon i {
     font-size: 1.8rem;
+}
+
+.method-details {
+    flex: 1;
 }
 
 .method-details h4 {
@@ -1343,12 +1375,31 @@ body {
 
 .method-details p {
     color: var(--gray);
-    margin: 0;
+    margin-bottom: 12px;
     font-size: 1.1rem;
     line-height: 1.5;
 }
 
-.social-icons {
+.method-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.method-link:hover {
+    background-color: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.social-links {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -1357,32 +1408,72 @@ body {
 .social-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     padding: 18px 25px;
-    background-color: var(--light);
-    border-radius: 12px;
+    background-color: var(--white);
+    border-radius: 10px;
     text-decoration: none;
     color: var(--primary);
     font-weight: 600;
     transition: var(--transition);
-    border: 1px solid var(--light-gray);
+    border: 2px solid transparent;
+    font-size: 1.05rem;
 }
 
 .social-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn.linkedin {
+    background-color: #0077b5;
+    color: var(--white);
+    border-color: #0077b5;
 }
 
 .social-btn.linkedin:hover {
-    background-color: #0a66c2;
-    color: var(--white);
-    border-color: #0a66c2;
+    background-color: transparent;
+    color: #0077b5;
 }
 
-.social-btn.instagram:hover {
-    background-color: #e4405f;
+.social-btn.instagram {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
     color: var(--white);
-    border-color: #e4405f;
+    border: none;
+    position: relative;
+}
+
+.social-btn.instagram::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: var(--white);
+    border-radius: 8px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-btn.instagram:hover::before {
+    opacity: 1;
+}
+
+.social-btn.instagram span,
+.social-btn.instagram i {
+    position: relative;
+    z-index: 2;
+}
+
+.social-btn.instagram:hover span,
+.social-btn.instagram:hover i {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .social-btn i {
@@ -1438,14 +1529,8 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     
-    .contact-content,
-    .contact-headings,
-    .contact-details {
+    .contact-content {
         gap: 40px;
-    }
-    
-    .contact-heading {
-        font-size: 1.6rem;
     }
 }
 
@@ -1482,23 +1567,21 @@ body {
     }
     
     /* Stack contact sections on mobile */
-    .contact-headings,
-    .contact-details {
+    .contact-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
-    .contact-headings {
-        margin-bottom: 30px;
+    .contact-section {
+        padding: 25px;
     }
     
     .contact-heading {
-        font-size: 1.5rem;
-        text-align: center;
+        font-size: 1.6rem;
     }
     
     .contact-method {
-        padding: 20px;
+        padding: 18px;
     }
     
     .method-icon {
@@ -1518,22 +1601,42 @@ body {
         font-size: 1rem;
     }
     
+    .method-link {
+        padding: 7px 18px;
+        font-size: 0.85rem;
+    }
+    
     .social-btn {
         padding: 15px 20px;
+        font-size: 1rem;
     }
     
     .project-actions {
         flex-direction: column;
     }
     
-    /* Ensure skills section has proper padding on mobile */
-    .skills {
-        padding-bottom: 60px;
+    /* Education section adjustments */
+    .tab-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
     
-    .skills-grid {
-        gap: 20px;
-        padding-bottom: 20px;
+    .tab-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tab-details {
+        padding: 0 20px 30px;
+    }
+    
+    .course-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-highlights li {
+        padding: 12px 15px;
     }
 }
 
@@ -1567,12 +1670,15 @@ body {
     }
     
     .contact-method {
-        padding: 18px;
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
     }
     
     .method-icon {
         width: 45px;
         height: 45px;
+        margin: 0 auto 15px;
     }
     
     .method-icon i {
@@ -1585,6 +1691,11 @@ body {
     
     .method-details p {
         font-size: 0.95rem;
+    }
+    
+    .method-link {
+        width: 100%;
+        text-align: center;
     }
     
     .social-btn {
