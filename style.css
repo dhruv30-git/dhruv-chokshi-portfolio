@@ -2098,6 +2098,277 @@ body {
     text-align: center;
 }
 
+/* style.css - UPDATED CONTACT SECTION FOR MOBILE CENTERING */
+
+/* ========== CONTACT SECTION - MOBILE CENTER ALIGNMENT FIX ========== */
+@media (max-width: 768px) {
+    /* Stack contact sections on mobile */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-section {
+        padding: 30px 25px; /* Increased padding for better spacing */
+        align-items: center; /* Center align all content */
+        text-align: center; /* Center align text */
+    }
+    
+    .contact-heading {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .contact-description {
+        text-align: center;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+    /* Center aligned contact methods on mobile - FIXED */
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+        align-items: center; /* Center align items */
+        justify-content: center; /* Center justify content */
+    }
+    
+    .contact-method {
+        display: flex;
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center align horizontally */
+        justify-content: center; /* Center align vertically */
+        gap: 20px;
+        padding: 25px 20px;
+        background-color: var(--white);
+        border-radius: 12px;
+        transition: var(--transition);
+        border: 1px solid var(--light-gray);
+        width: 100%;
+        max-width: 350px; /* Limit width for better centering */
+        margin: 0 auto; /* Center the contact method block */
+        text-align: center; /* Center align text */
+        box-shadow: var(--shadow);
+    }
+    
+    .contact-method:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+        box-shadow: 0 10px 25px rgba(0, 102, 204, 0.1);
+    }
+    
+    .method-icon {
+        width: 70px; /* Slightly larger for mobile */
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: var(--white);
+        flex-shrink: 0;
+        margin: 0 auto; /* Center the icon */
+    }
+    
+    .method-icon i {
+        font-size: 1.8rem;
+    }
+    
+    .method-details {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align items */
+        width: 100%;
+    }
+    
+    .method-details h4 {
+        font-size: 1.3rem; /* Slightly larger for mobile */
+        color: var(--primary);
+        margin-bottom: 12px;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .method-details p {
+        color: var(--gray);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        width: 100%;
+        text-align: center;
+        word-break: break-word; /* Ensure long text breaks properly */
+    }
+    
+    .method-link {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: var(--accent);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        margin-top: 5px;
+        min-width: 140px; /* Minimum width for touch target */
+        text-align: center;
+    }
+    
+    .method-link:hover {
+        background-color: transparent;
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+    
+    .social-btn {
+        padding: 16px 25px;
+        font-size: 1rem;
+        max-width: 350px; /* Match contact method width */
+        margin: 0 auto; /* Center the button */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Small mobile adjustments */
+    .contact-section {
+        padding: 25px 20px;
+    }
+    
+    .contact-heading {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact-description {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .contact-methods {
+        gap: 20px;
+    }
+    
+    .contact-method {
+        padding: 22px 18px;
+        max-width: 320px; /* Slightly smaller for very small screens */
+    }
+    
+    .method-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .method-icon i {
+        font-size: 1.7rem;
+    }
+    
+    .method-details h4 {
+        font-size: 1.2rem;
+    }
+    
+    .method-details p {
+        font-size: 1.05rem;
+    }
+    
+    .method-link {
+        padding: 9px 22px;
+        font-size: 0.9rem;
+        min-width: 130px;
+    }
+    
+    .social-btn {
+        padding: 15px 22px;
+        font-size: 0.95rem;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Extra small screens */
+    .contact-section {
+        padding: 22px 15px;
+    }
+    
+    .contact-heading {
+        font-size: 1.4rem;
+    }
+    
+    .contact-description {
+        font-size: 0.95rem;
+    }
+    
+    .contact-method {
+        padding: 20px 15px;
+        max-width: 100%; /* Use full width on very small screens */
+    }
+    
+    .method-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .method-icon i {
+        font-size: 1.6rem;
+    }
+    
+    .method-details h4 {
+        font-size: 1.15rem;
+    }
+    
+    .method-details p {
+        font-size: 1rem;
+    }
+    
+    .method-link {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        min-width: 120px;
+    }
+    
+    .social-btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+}
+
+/* Additional centering fix for all screen sizes */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Ensure each contact method is perfectly centered */
+.contact-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.method-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* ========== FOOTER ========== */
 .footer {
     background-color: var(--primary);
