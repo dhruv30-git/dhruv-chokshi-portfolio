@@ -73,6 +73,14 @@ const loadingInterval = setInterval(() => {
     }
 }, 100); // Update every 100ms
 
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
+
+
 // Create falling binary digits
 function createBinaryDigit() {
     const binaryBg = document.querySelector('.binary-background') || createBinaryBackground();
