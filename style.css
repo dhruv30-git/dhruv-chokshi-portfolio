@@ -731,8 +731,15 @@ body {
     }
 }
 .hero-title {
+    font-size: clamp(1.5rem, 8vw, 3.5rem); /* Fluid typography */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2;
     white-space: nowrap;
-    font-size: clamp(1.5rem, 6vw, 3.5rem);
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds ... if still too long */
 }
 /* ========== ABOUT SECTION ========== */
 .about-content {
