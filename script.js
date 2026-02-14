@@ -220,31 +220,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== BUTTON HANDLERS ==========
-    function setupButtonHandlers() {
-        // View Presentation button
-        const viewPresentationBtn = document.getElementById('view-presentation-btn');
-        if (viewPresentationBtn) {
-            viewPresentationBtn.addEventListener('click', function() {
-                alert('Presentation will be available for viewing soon!');
-            });
-        }
-        
-        // Download PPT button
-        const downloadPPTBtn = document.getElementById('download-ppt-btn');
-        if (downloadPPTBtn) {
-            downloadPPTBtn.addEventListener('click', function() {
-                alert('PPT file will be available for download soon!');
-            });
-        }
-        
-        // Download Resume button
-        const downloadResumeBtn = document.getElementById('download-resume-btn');
-        if (downloadResumeBtn) {
-            downloadResumeBtn.addEventListener('click', function() {
-                alert('Resume PDF will be available for download soon!');
-            });
-        }
+   
+    // Update the setupButtonHandlers function
+function setupButtonHandlers() {
+    // View Presentation button
+    const viewPresentationBtn = document.getElementById('view-presentation-btn');
+    if (viewPresentationBtn) {
+        viewPresentationBtn.addEventListener('click', function() {
+            alert('Presentation will be available for viewing soon!');
+        });
     }
+    
+    // Download PPT button
+    const downloadPPTBtn = document.getElementById('download-ppt-btn');
+    if (downloadPPTBtn) {
+        downloadPPTBtn.addEventListener('click', function() {
+            alert('PPT file will be available for download soon!');
+        });
+    }
+    
+    // Download Resume button - Now handled by HTML link
+    // You can add tracking or analytics here if needed
+    const downloadResumeBtn = document.getElementById('download-resume-btn');
+    if (downloadResumeBtn) {
+        downloadResumeBtn.addEventListener('click', function() {
+            console.log('Resume download initiated');
+            // You can add Google Analytics tracking here if you have it
+        });
+    }
+}
 
     // ========== SCROLL EFFECTS ==========
     function setupScrollEffects() {
